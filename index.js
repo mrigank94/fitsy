@@ -17,9 +17,11 @@ mongoose
   .catch((ex) => console.log("Error occurred", ex));
 
 require("./routes/auth.route")(app);
-require("./routes/company.route")(app);
-require("./routes/job.route")(app);
-require("./routes/applicant.route")(app);
+require("./routes/hospital.route")(app);
+require("./routes/doctor.route")(app);
+require("./routes/prescription.route")(app);
+require("./routes/sickness.route")(app);
+require("./routes/medicine.route")(app);
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);

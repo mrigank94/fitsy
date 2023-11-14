@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const companySchema = new mongoose.Schema({
+const hospitalSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -15,7 +15,13 @@ const companySchema = new mongoose.Schema({
   description: {
     type: String,
   },
-  numOfEmployees: {
+  numOfBeds: {
+    type: Number,
+  },
+  address: {
+    type: String,
+  },
+  contactNumber: {
     type: Number,
   },
   createdAt: {
@@ -29,6 +35,6 @@ const companySchema = new mongoose.Schema({
   },
 });
 
-const Company = mongoose.model("Company", companySchema);
+const Hospital = mongoose.model("Hospital", hospitalSchema);
 
-module.exports = Company;
+module.exports = Hospital;

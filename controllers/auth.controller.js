@@ -14,7 +14,7 @@ function signup(req, res) {
     password: bcrypt.hashSync(password, 10),
     userType,
     userStatus:
-      userType === USERTYPES.APPLICANT
+      userType === USERTYPES.PATIENT
         ? USER_STATUS.APPROVED
         : USER_STATUS.PENDING,
   };
