@@ -9,7 +9,9 @@ async function getDoctorById(req, res) {
   const id = req.params.id;
 
   try {
-    const doctor = await Doctor.findById(id);
+    const doctor = await Doctor.findById(id)
+      .populate("user", "name userId email")
+      .populate("hospitals");
     res.status(200).send(doctor);
   } catch (ex) {
     res.status(404).send({
@@ -34,12 +36,14 @@ async function deleteDoctorById(req, res) {
   await Doctor.findByIdAndDelete(id);
 
   res.status(200).send({
-    message: `Doctor with ID ${id} updated successfully`,
+    message: `Doctor with ID ${id} deleted successfully`,
   });
 }
 
 async function getAllDoctors(req, res) {
-  const doctors = await Doctor.find({});
+  const doctors = await Doctor.find({})
+    .populate("user", "name userId email")
+    .populate("hospitals");
   res.send(doctors);
 }
 

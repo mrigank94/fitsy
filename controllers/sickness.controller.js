@@ -9,7 +9,11 @@ async function getSicknessById(req, res) {
   const id = req.params.id;
 
   try {
-    const sickness = await Sickness.findById(id);
+    const sickness = await Sickness.findById(id)
+      .populate("patient")
+      .populate("doctor")
+      .populate("hospital")
+      .populate("prescription");
     res.status(200).send(sickness);
   } catch (ex) {
     res.status(404).send({
@@ -34,7 +38,7 @@ async function deleteSicknessById(req, res) {
   await Sickness.findByIdAndDelete(id);
 
   res.status(200).send({
-    message: `Sickness with ID ${id} updated successfully`,
+    message: `Sickness with ID ${id} deleted successfully`,
   });
 }
 

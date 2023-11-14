@@ -21,7 +21,7 @@ async function deletePrescriptionById(req, res) {
   await Prescription.findByIdAndDelete(id);
 
   res.status(200).send({
-    message: `Prescription with ID ${id} updated successfully`,
+    message: `Prescription with ID ${id} deleted successfully`,
   });
 }
 
@@ -43,7 +43,7 @@ async function getPrescriptionById(req, res) {
   const id = req.params.id;
 
   try {
-    const prescription = await Prescription.findById(id);
+    const prescription = await Prescription.findById(id).populate("medicines");
     res.status(200).send(prescription);
   } catch (ex) {
     res.status(404).send({

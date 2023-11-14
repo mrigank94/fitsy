@@ -12,7 +12,7 @@ const medicineSchema = new mongoose.Schema({
     type: String,
   },
   manufacturerAddress: {
-    type: Number,
+    type: String,
   },
   price: {
     type: Number,
@@ -21,7 +21,7 @@ const medicineSchema = new mongoose.Schema({
     type: String,
   },
   sideEffects: {
-    type: String,
+    type: [String],
   },
   createdAt: {
     type: Date,

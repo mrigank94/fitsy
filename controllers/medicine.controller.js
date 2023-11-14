@@ -34,7 +34,7 @@ async function deleteMedicineById(req, res) {
   await Medicine.findByIdAndDelete(id);
 
   res.status(200).send({
-    message: `Medicine with ID ${id} updated successfully`,
+    message: `Medicine with ID ${id} deleted successfully`,
   });
 }
 

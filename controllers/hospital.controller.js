@@ -34,7 +34,7 @@ async function deleteHospitalById(req, res) {
   await Hospital.findByIdAndDelete(id);
 
   res.status(200).send({
-    message: `Hospital with ID ${id} updated successfully`,
+    message: `Hospital with ID ${id} deleted successfully`,
   });
 }
 

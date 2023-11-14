@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const sicknessSchema = new mongoose.Schema({
-  patientId: {
+  patient: {
     type: mongoose.SchemaTypes.ObjectId,
     required: true,
     ref: "User",
@@ -10,15 +10,15 @@ const sicknessSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  doctorId: {
+  doctor: {
     type: mongoose.SchemaTypes.ObjectId,
     ref: "Doctor",
   },
-  hospitalId: {
+  hospital: {
     type: mongoose.SchemaTypes.ObjectId,
     ref: "Hospital",
   },
-  prescriptionId: {
+  prescription: {
     type: mongoose.SchemaTypes.ObjectId,
     ref: "Prescription",
   },

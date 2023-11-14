@@ -12,7 +12,7 @@ const prescriptionSchema = new mongoose.Schema({
     type: Number,
   },
   tests: {
-    type: String,
+    type: [String],
   },
   duration: {
     type: Number,
